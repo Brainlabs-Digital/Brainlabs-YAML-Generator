@@ -209,7 +209,7 @@ def standard_questions(token: str) -> list:
             "name": "deployments.server-button-press.domain",
             "message": "What is the server-button-press domain? (Optional)",
             "when": partial(is_deployment, "server-button-press"),
-            "validate": validators.ValidUrl,
+            "validate": validators.ValidOptionalUrl,
         },
         {
             "type": "list",
@@ -286,7 +286,7 @@ def standard_questions(token: str) -> list:
             "name": "deployments.command-line.project-directory",
             "message": "What is the command-line project directory?",
             "when": partial(is_deployment, "command-line"),
-            "validate": validators.ValidDirectory,
+            "validate": validators.ValidOptionalDirectory,
         },
         {
             "type": "input",

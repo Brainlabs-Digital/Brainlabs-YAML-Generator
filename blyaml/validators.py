@@ -172,3 +172,9 @@ class ValidDirectory(Validator):
     def validate(self, document: Document) -> bool:
         """Return True with no errors for a syntaxtically valid unix path."""
         return non_empty(document) and valid_directory(document)
+
+
+class ValidOptionalDirectory(Validator):
+    def validate(self, document: Document) -> bool:
+        """Return True with no errors for a syntaxtically valid unix path."""
+        return document.text == "" and valid_directory(document)
