@@ -157,6 +157,20 @@ def standard_questions(token: str) -> list:
         },
         {
             "type": "input",
+            "name": "deployments.google-cloud-platform.project-name",
+            "message": "What is the Google Cloud Platform project name?",
+            "when": partial(is_deployment, "google-cloud-platform"),
+            "validate": validators.ValidNonEmpty,
+        },
+        {
+            "type": "input",
+            "name": "deployments.google-cloud-platform.domain",
+            "message": "What is the Google Cloud Platform domain?",
+            "when": partial(is_deployment, "google-cloud-platform"),
+            "validate": validators.ValidOptionalUrl,
+        },
+        {
+            "type": "input",
             "name": "deployments.tech-managed-google-ads-script.account-id",
             "message": "What is the tech-managed-google-ads-script account id?",
             "when": partial(is_deployment, "tech-managed-google-ads-script"),
