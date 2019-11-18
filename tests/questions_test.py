@@ -4,6 +4,7 @@ from blyaml.questions import list_to_list_of_checkbox_dicts
 def test_list_to_list_of_checkbox_dicts() -> None:
     input = [
         "server-cronjob",
+        "google-cloud-platform",
         "tech-managed-google-ads-script",
         "user-managed-google-ads-script",
         "server-button-press",
@@ -17,6 +18,7 @@ def test_list_to_list_of_checkbox_dicts() -> None:
     ]
     output = [
         {"name": "server-cronjob"},
+        {"name": "google-cloud-platform"},
         {"name": "tech-managed-google-ads-script"},
         {"name": "user-managed-google-ads-script"},
         {"name": "server-button-press"},

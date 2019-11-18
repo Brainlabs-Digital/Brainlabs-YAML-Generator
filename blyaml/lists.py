@@ -37,6 +37,7 @@ def sesame_list(token: str, endpoint: str) -> list:
 def deployment() -> list:
     return [
         "server-cronjob",
+        "google-cloud-platform",
         "tech-managed-google-ads-script",
         "user-managed-google-ads-script",
         "server-button-press",
