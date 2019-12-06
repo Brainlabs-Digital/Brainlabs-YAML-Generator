@@ -8,6 +8,7 @@ from PyInquirer import prompt
 from blyaml.answers_to_yaml import answers_to_yaml
 from blyaml.directory import blyaml_directory
 from blyaml.questions import meta_questions, output_questions, standard_questions
+from blyaml.text_formatting import bold, bold_green, bold_red
 
 
 def main() -> None:
@@ -35,7 +36,7 @@ def main() -> None:
         print(f"Your yaml file has been copied to clipboard.")
 
     try:
-        state = "valid" if validate(yaml, token) else "invalid"
+        state = bold_green("valid") if validate(yaml, token) else bold_red("invalid")
         print(f"\nThe Sesame API says that your yaml appears to be {state}.")
     except requests.RequestException:
         print("\nYour yaml was not able to validated by the Sesame API.")
@@ -65,10 +66,8 @@ def get_token() -> str:
 
 
 def welcome_message() -> str:
-    bold = "\033[1m"
-    end = "\033[0m"
     return (
-        f"{bold}Welcome to the Brainlabs YAML Generator.{end}\n"
+        bold("Welcome to the Brainlabs YAML Generator.\n")
         + "\n"
         + "You will be asked a series of questions to generate your yaml.\n"
         + "Arrow keys select, enter confirms. "
