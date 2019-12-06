@@ -31,7 +31,7 @@ def answers_to_structured_dict(answers: dict) -> dict:
             answers["tech-implementation"]
         )
     if answers.get("client-ids_list"):
-        client_ids = list(map(int, answers["client-ids_list"]))
+        client_ids = answers["client-ids_list"]
         output["public-info"]["client-ids"] = client_ids
     if answers.get("client-ids_str"):
         client_ids = list(map(int, comma_sep(answers["client-ids"])))
@@ -99,7 +99,7 @@ def set_normal_value(deployments_dict: dict, key_parts: list, value: str) -> Non
 
 
 def structured_dict_to_yaml(structured_dict: dict) -> str:
-    return yaml.dump(data=structured_dict, sort_keys=False)
+    return yaml.dump(data=structured_dict, sort_keys=False).replace("'", "")
 
 
 def yaml_str(value: str) -> Union[bool, str]:

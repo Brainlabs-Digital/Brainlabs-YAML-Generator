@@ -67,5 +67,5 @@ def client(token: str) -> list:
 def client_name_format(client_name_id: dict) -> dict:
     return {
         "name": client_name_id["name"].ljust(50) + client_name_id["id"],
-        "value": client_name_id["id"],
+        "value": f"{int(client_name_id['id'])} #{client_name_id['name']}",
     }
